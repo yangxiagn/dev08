@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<!--
+			删除子节点： 父节点.removeChild(子节点)   
+			替换子节点： 父节点.replaceChild(newnode,oldnode); 
+		-->
+		<p>
+			<img src="images/f01.jpg" alt="" id="firstimg"/>
+			<input type="button" value="删除我吧" onclick="del()" id="delid" />
+		</p>
+		<p>
+			<img src="images/f02.jpg" alt="" id="secondimg"/>
+			<input type="button" value="换换我吧" onclick="rep()" />
+		</p>
+		<script>
+			function del(){
+				//得到要删除的元素
+				var delnode = document.getElementById("firstimg");
+				//删除元素
+				delnode.parentNode.removeChild(delnode);
+			}
+			function rep(){
+				//要替换的节点
+				var oldnode = document.getElementById("secondimg");
+				//创建新的图片
+				var newnode = document.createElement("img");
+				newnode.setAttribute("src","images/f03.jpg");
+				//替换
+				oldnode.parentNode.replaceChild(newnode,oldnode);
+			}
+		</script>
+	</body>
+</html>

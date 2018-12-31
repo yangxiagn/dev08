@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			.overclass{
+				border: 2px solid blue;
+				height: 300px;
+			}
+			.outclass{
+				border: 1px solid red;
+				height: 100px;
+			}
+		</style>
+	</head>
+	<body>
+		<!--
+			style : 行内样式
+			className ： class样式名
+			
+			onclick ：点击
+			onmouseover：鼠标移入
+			onmouseout：鼠标移出
+			
+		-->
+		<!--<input type="button" value="显示样式"  onclick="showstyle()"/>
+		<div style="width: 100px;height:100px;border: 1px solid red; " id="mydiv"
+			onmouseover="over()" onmouseout="out()"></div>
+		<script>
+			//设置？  元素.style.height=100
+			function showstyle(){
+				alert(document.getElementById("mydiv").style.height);
+			}
+			function over(){
+				document.getElementById("mydiv").style.border="2px solid blue";
+				document.getElementById("mydiv").style.height="300px";
+			}
+			function out(){
+				document.getElementById("mydiv").style.border="1px solid red";
+				document.getElementById("mydiv").style.height="100px";
+			}
+		</script>-->
+		<input type="button" value="显示样式"  onclick="showstyle()"/>
+			<div  id="mydiv" style="width: 100px;" onmouseover="over()" onmouseout="out()" class="outclass"></div>
+			<script>
+				//设置？  元素.style.height=100
+				function showstyle(){
+//					alert(document.getElementById("mydiv").style.height);
+					var mydiv = document.getElementById("mydiv");
+				    //该方法 老版本IE 不支持
+				    //document.defaultView.getComputedStyle(元素,null).属性
+//					alert(document.defaultView.getComputedStyle(mydiv,null).height);
+					//兼容IE的写法
+					//元素.currentStyle.属性
+					alert(mydiv.currentStyle.height);
+				}
+				function over(){
+					 document.getElementById("mydiv").className = "overclass";
+				}
+				function out(){
+					 document.getElementById("mydiv").className ="outclass";
+				}
+		</script>
+	
+	</body>
+</html>
